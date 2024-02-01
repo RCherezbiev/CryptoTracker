@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		C4BB71752B6C2231007A16E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71742B6C2231007A16E7 /* AppDelegate.swift */; };
 		C4BB71772B6C2231007A16E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71762B6C2231007A16E7 /* SceneDelegate.swift */; };
-		C4BB71792B6C2231007A16E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71782B6C2231007A16E7 /* ViewController.swift */; };
+		C4BB71792B6C2231007A16E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71782B6C2231007A16E7 /* MainViewController.swift */; };
 		C4BB717C2B6C2231007A16E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BB717A2B6C2231007A16E7 /* Main.storyboard */; };
 		C4BB717E2B6C2232007A16E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BB717D2B6C2232007A16E7 /* Assets.xcassets */; };
 		C4BB71812B6C2232007A16E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BB717F2B6C2232007A16E7 /* LaunchScreen.storyboard */; };
+		C4BB718D2B6C24C8007A16E7 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB718C2B6C24C8007A16E7 /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C4BB71712B6C2231007A16E7 /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BB71742B6C2231007A16E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BB71762B6C2231007A16E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C4BB71782B6C2231007A16E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C4BB71782B6C2231007A16E7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C4BB717B2B6C2231007A16E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4BB717D2B6C2232007A16E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4BB71802B6C2232007A16E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4BB71822B6C2232007A16E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4BB718C2B6C24C8007A16E7 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,9 +42,6 @@
 		C4BB71682B6C2231007A16E7 = {
 			isa = PBXGroup;
 			children = (
-				C4BB71892B6C2324007A16E7 /* Storyboards */,
-				C4BB71882B6C2311007A16E7 /* App */,
-				C4BB718A2B6C2348007A16E7 /* ViewControllers */,
 				C4BB71732B6C2231007A16E7 /* CryptoTracker */,
 				C4BB71722B6C2231007A16E7 /* Products */,
 			);
@@ -59,6 +58,10 @@
 		C4BB71732B6C2231007A16E7 /* CryptoTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C4BB718B2B6C24B8007A16E7 /* Model */,
+				C4BB718A2B6C2348007A16E7 /* ViewControllers */,
+				C4BB71892B6C2324007A16E7 /* Storyboards */,
+				C4BB71882B6C2311007A16E7 /* App */,
 				C4BB717D2B6C2232007A16E7 /* Assets.xcassets */,
 			);
 			path = CryptoTracker;
@@ -86,9 +89,17 @@
 		C4BB718A2B6C2348007A16E7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4BB71782B6C2231007A16E7 /* ViewController.swift */,
+				C4BB71782B6C2231007A16E7 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4BB718B2B6C24B8007A16E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4BB718C2B6C24C8007A16E7 /* Coin.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +173,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4BB71792B6C2231007A16E7 /* ViewController.swift in Sources */,
+				C4BB71792B6C2231007A16E7 /* MainViewController.swift in Sources */,
 				C4BB71752B6C2231007A16E7 /* AppDelegate.swift in Sources */,
+				C4BB718D2B6C24C8007A16E7 /* Coin.swift in Sources */,
 				C4BB71772B6C2231007A16E7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,12 +330,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6NTBUA69W9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptoTracker/Info.plist;
+				INFOPLIST_FILE = CryptoTracker/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,9 +343,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cherezbiev.CryptoTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -346,12 +362,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6NTBUA69W9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CryptoTracker/Info.plist;
+				INFOPLIST_FILE = CryptoTracker/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,9 +375,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cherezbiev.CryptoTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
