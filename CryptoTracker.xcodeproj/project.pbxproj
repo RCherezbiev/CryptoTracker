@@ -40,6 +40,9 @@
 		C4BB71682B6C2231007A16E7 = {
 			isa = PBXGroup;
 			children = (
+				C4BB71892B6C2324007A16E7 /* Storyboards */,
+				C4BB71882B6C2311007A16E7 /* App */,
+				C4BB718A2B6C2348007A16E7 /* ViewControllers */,
 				C4BB71732B6C2231007A16E7 /* CryptoTracker */,
 				C4BB71722B6C2231007A16E7 /* Products */,
 			);
@@ -56,15 +59,36 @@
 		C4BB71732B6C2231007A16E7 /* CryptoTracker */ = {
 			isa = PBXGroup;
 			children = (
-				C4BB71742B6C2231007A16E7 /* AppDelegate.swift */,
-				C4BB71762B6C2231007A16E7 /* SceneDelegate.swift */,
-				C4BB71782B6C2231007A16E7 /* ViewController.swift */,
-				C4BB717A2B6C2231007A16E7 /* Main.storyboard */,
 				C4BB717D2B6C2232007A16E7 /* Assets.xcassets */,
-				C4BB717F2B6C2232007A16E7 /* LaunchScreen.storyboard */,
-				C4BB71822B6C2232007A16E7 /* Info.plist */,
 			);
 			path = CryptoTracker;
+			sourceTree = "<group>";
+		};
+		C4BB71882B6C2311007A16E7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C4BB71742B6C2231007A16E7 /* AppDelegate.swift */,
+				C4BB71762B6C2231007A16E7 /* SceneDelegate.swift */,
+				C4BB71822B6C2232007A16E7 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C4BB71892B6C2324007A16E7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C4BB717A2B6C2231007A16E7 /* Main.storyboard */,
+				C4BB717F2B6C2232007A16E7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C4BB718A2B6C2348007A16E7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4BB71782B6C2231007A16E7 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
