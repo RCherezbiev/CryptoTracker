@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C450C9752B6C2C340032FD29 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450C9742B6C2C340032FD29 /* CoinCell.swift */; };
 		C4BB71752B6C2231007A16E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71742B6C2231007A16E7 /* AppDelegate.swift */; };
 		C4BB71772B6C2231007A16E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71762B6C2231007A16E7 /* SceneDelegate.swift */; };
 		C4BB71792B6C2231007A16E7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB71782B6C2231007A16E7 /* MainViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C450C9742B6C2C340032FD29 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		C4BB71712B6C2231007A16E7 /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BB71742B6C2231007A16E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BB71762B6C2231007A16E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C450C9732B6C2C280032FD29 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C450C9742B6C2C340032FD29 /* CoinCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C4BB71682B6C2231007A16E7 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		C4BB71732B6C2231007A16E7 /* CryptoTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C450C9732B6C2C280032FD29 /* Cell */,
 				C4BB718B2B6C24B8007A16E7 /* Model */,
 				C4BB718A2B6C2348007A16E7 /* ViewControllers */,
 				C4BB71892B6C2324007A16E7 /* Storyboards */,
@@ -175,6 +186,7 @@
 			files = (
 				C4BB71792B6C2231007A16E7 /* MainViewController.swift in Sources */,
 				C4BB71752B6C2231007A16E7 /* AppDelegate.swift in Sources */,
+				C450C9752B6C2C340032FD29 /* CoinCell.swift in Sources */,
 				C4BB718D2B6C24C8007A16E7 /* Coin.swift in Sources */,
 				C4BB71772B6C2231007A16E7 /* SceneDelegate.swift in Sources */,
 			);

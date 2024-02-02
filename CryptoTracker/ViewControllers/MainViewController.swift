@@ -9,9 +9,24 @@ import UIKit
 
 final class MainViewController: UITableViewController {
     
+    private var coins: [Coin] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchCoin()
+    }
+    
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        coins.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "coinCell", for: indexPath)
+        guard let cell = cell as? CoinCell else { return UITableViewCell() }
+        let coin = coins[indexPath.row]
+        cell.configure(with: coin)
+        return cell
     }
 }
 
@@ -21,17 +36,15 @@ extension MainViewController {
         URLSession.shared.dataTask(with: urlApi) { [weak self] data, _, error in
             guard let self else { return }
             guard let data else {
-                print(error?.localizedDescription ?? "No error description")
+                print(error ?? "No error description")
                 return
             }
             
-            if let JSONString = String(data: data, encoding: .utf8) {
-                print(JSONString)
-            }
-            
             do {
-                let coin = try JSONDecoder().decode([Coin].self, from: data)
-                print(coin)
+                self.coins = try JSONDecoder().decode([Coin].self, from: data)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             } catch {
                 print(error)
             }

@@ -7,22 +7,72 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Crypto Tracker-->
         <scene sceneID="PTf-Li-sRF">
             <objects>
-                <tableViewController id="UiM-Of-gCy" sceneMemberID="viewController">
+                <tableViewController id="UiM-Of-gCy" customClass="MainViewController" customModule="CryptoTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="9pM-dm-lJg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coinCell" id="hRw-oN-bB3">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coinCell" rowHeight="100" id="hRw-oN-bB3" customClass="CoinCell" customModule="CryptoTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hRw-oN-bB3" id="xai-fA-aBr">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-zK-YIO">
+                                            <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="nta-Qd-xxO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="E0A-xv-rrC">
+                                            <rect key="frame" x="125" y="8" width="250" height="84"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-zI-uRE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="20.666666666666668"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhU-1w-IX5">
+                                                    <rect key="frame" x="0.0" y="31.666666666666664" width="250" height="20.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8R-dI-Yer">
+                                                    <rect key="frame" x="0.0" y="63.333333333333321" width="250" height="20.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="250" id="phh-rl-fPs"/>
+                                                <constraint firstAttribute="height" constant="100" id="uJm-Ge-OKZ"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="E0A-xv-rrC" secondAttribute="bottom" constant="8" id="35f-i2-vzO"/>
+                                        <constraint firstItem="E0A-xv-rrC" firstAttribute="centerY" secondItem="xai-fA-aBr" secondAttribute="centerY" id="ES0-kK-gNc"/>
+                                        <constraint firstAttribute="trailing" secondItem="E0A-xv-rrC" secondAttribute="trailing" constant="18" id="Lqv-T7-XHT"/>
+                                        <constraint firstItem="E0A-xv-rrC" firstAttribute="top" secondItem="xai-fA-aBr" secondAttribute="top" constant="8" id="NvZ-HZ-mB5"/>
+                                        <constraint firstAttribute="bottom" secondItem="nrs-zK-YIO" secondAttribute="bottom" id="TCl-av-lVX"/>
+                                        <constraint firstItem="nrs-zK-YIO" firstAttribute="top" secondItem="xai-fA-aBr" secondAttribute="top" id="TLC-ta-e3m"/>
+                                        <constraint firstItem="nrs-zK-YIO" firstAttribute="leading" secondItem="xai-fA-aBr" secondAttribute="leading" constant="8" id="mBb-IO-6UC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="coinImageView" destination="nrs-zK-YIO" id="nXd-hx-fKg"/>
+                                    <outlet property="coinNameLabel" destination="cLf-zI-uRE" id="TZr-iT-UOP"/>
+                                    <outlet property="coinPriceLabel" destination="y8R-dI-Yer" id="qS0-oc-hRO"/>
+                                    <outlet property="symbolLabel" destination="XhU-1w-IX5" id="noX-tq-8Kj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,11 +80,11 @@
                             <outlet property="delegate" destination="UiM-Of-gCy" id="oev-Fc-ahE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="zkf-Z4-PXF"/>
+                    <navigationItem key="navigationItem" title="Crypto Tracker" id="zkf-Z4-PXF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsh-Bc-aUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737" y="-61"/>
+            <point key="canvasLocation" x="736.64122137404581" y="-61.267605633802823"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lof-SF-d1B">
