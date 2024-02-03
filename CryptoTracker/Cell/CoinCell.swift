@@ -12,13 +12,20 @@ final class CoinCell: UITableViewCell {
     @IBOutlet var coinNameLabel: UILabel!
     @IBOutlet var symbolLabel: UILabel!
     @IBOutlet var coinPriceLabel: UILabel!
+    @IBOutlet var highPerDayLabel: UILabel!
+    @IBOutlet var lowPerDayLabel: UILabel!
+    
+    private let networkManger = NetworkManager.shared
     
     func configure(with coin: Coin) {
-        coinNameLabel.text = "Актив: \(coin.name)"
-        symbolLabel.text = "Символ: \(coin.symbol)"
-        coinPriceLabel.text = "Текущая цена: \(coin.current_price) $"
+        coinNameLabel.text = (coin.name)
+        symbolLabel.text = coin.symbol.uppercased()
+        coinPriceLabel.text = "Текущая цена: \(coin.currentPrice) $"
+        highPerDayLabel.text = "Максимум 24ч: \(coin.highTwentyFourHours) $"
+        lowPerDayLabel.text = "Минимум 24ч: \(coin.lowTwentyFourHours) $"
         
-        guard let imageData = try? Data(contentsOf: URL(string: coin.image)!) else { return }
-        coinImageView.image = UIImage(data: imageData)
+        networkManger.fetchImage(from: coin.image) { [unowned self] imageData in
+            coinImageView.image = UIImage(data: imageData)
+        }
     }
 }

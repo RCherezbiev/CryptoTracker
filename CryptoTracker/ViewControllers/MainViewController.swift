@@ -10,7 +10,7 @@ import UIKit
 final class MainViewController: UITableViewController {
     
     private var coins: [Coin] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchCoin()
@@ -33,7 +33,9 @@ final class MainViewController: UITableViewController {
 // MARK: - Networking
 extension MainViewController {
     private func fetchCoin() {
-        URLSession.shared.dataTask(with: urlApi) { [weak self] data, _, error in
+        URLSession.shared.dataTask(
+            with: NetworkManager.shared.urlApi
+        ) { [weak self] data, _, error in
             guard let self else { return }
             guard let data else {
                 print(error ?? "No error description")
