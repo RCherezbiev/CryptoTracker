@@ -10,6 +10,8 @@ import UIKit
 final class MainViewController: UITableViewController {
     
     private var coins: [Coin] = []
+    
+    private let networkManger = NetworkManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,23 +35,17 @@ final class MainViewController: UITableViewController {
 // MARK: - Networking
 extension MainViewController {
     private func fetchCoin() {
-        URLSession.shared.dataTask(
-            with: NetworkManager.shared.urlApi
-        ) { [weak self] data, _, error in
+        networkManger.fetch([Coin].self, from: networkManger.urlApi) { [weak self] result in
             guard let self else { return }
-            guard let data else {
-                print(error ?? "No error description")
-                return
-            }
-            
-            do {
-                self.coins = try JSONDecoder().decode([Coin].self, from: data)
+            switch result {
+            case .success(let coins):
+                self.coins = coins
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            } catch {
+            case .failure(let error):
                 print(error)
             }
-        }.resume()
+        }
     }
 }

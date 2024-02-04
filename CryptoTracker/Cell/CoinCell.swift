@@ -24,8 +24,13 @@ final class CoinCell: UITableViewCell {
         highPerDayLabel.text = "Максимум 24ч: \(coin.highTwentyFourHours) $"
         lowPerDayLabel.text = "Минимум 24ч: \(coin.lowTwentyFourHours) $"
         
-        networkManger.fetchImage(from: coin.image) { [unowned self] imageData in
-            coinImageView.image = UIImage(data: imageData)
+        networkManger.fetchImage(from: coin.image) { [unowned self] Result in
+            switch Result {
+            case .success(let imageData):
+                coinImageView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
