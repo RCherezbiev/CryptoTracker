@@ -12,10 +12,10 @@ final class MainViewController: UITableViewController {
     private var coins: [Coin] = []
     
     private let networkManger = NetworkManager.shared
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchCoin()
+        fetchCoins()
     }
     
     // MARK: - Table view data source
@@ -30,21 +30,15 @@ final class MainViewController: UITableViewController {
         cell.configure(with: coin)
         return cell
     }
-}
-
-// MARK: - Networking
-extension MainViewController {
-    private func fetchCoin() {
-        networkManger.fetch([Coin].self, from: networkManger.urlApi) { [weak self] result in
-            guard let self else { return }
+    
+    private func fetchCoins() {
+        networkManger.fetchCoins(from: Link.apiURL.url) { [unowned self] result in
             switch result {
             case .success(let coins):
                 self.coins = coins
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
+                tableView.reloadData()
+            case .failure(let failure):
+                print(failure)
             }
         }
     }

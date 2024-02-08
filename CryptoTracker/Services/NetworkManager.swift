@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case invalidURL
@@ -13,10 +14,21 @@ enum NetworkError: Error {
     case decodingError
 }
 
+enum Link {
+    case apiURL
+    
+    var url: URL {
+        switch self {
+        case .apiURL:
+            return URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")!
+        }
+    }
+}
+
+
+
 final class NetworkManager {
     static let shared = NetworkManager()
-    
-    let urlApi = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")!
     
     private init() {}
     
@@ -32,20 +44,19 @@ final class NetworkManager {
         }
     }
     
-    func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping(Result<T, NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                print(error ?? "No error description")
-                return
+    func fetchCoins(from url: URL, completion: @escaping(Result<[Coin], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let coins = Coin.getCoins(from: value)
+                    completion(.success(coins))
+                    
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+                
             }
-            
-            do {
-                let decoder = JSONDecoder()
-                let dataModel = try decoder.decode(T.self, from: data)
-                completion(.success(dataModel))
-            } catch {
-                completion(.failure(.decodingError))
-            }
-        }.resume()
     }
 }
