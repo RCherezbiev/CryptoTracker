@@ -9,20 +9,18 @@ import UIKit
 
 final class CoinCell: UITableViewCell {
     @IBOutlet var coinImageView: UIImageView!
-    @IBOutlet var coinNameLabel: UILabel!
-    @IBOutlet var symbolLabel: UILabel!
-    @IBOutlet var coinPriceLabel: UILabel!
-    @IBOutlet var highPerDayLabel: UILabel!
-    @IBOutlet var lowPerDayLabel: UILabel!
-    
+    @IBOutlet var coinInfoLabel: UILabel!
+
     private let networkManger = NetworkManager.shared
     
     func configure(with coin: Coin) {
-        coinNameLabel.text = (coin.name)
-        symbolLabel.text = coin.symbol.uppercased()
-        coinPriceLabel.text = "Текущая цена: \(coin.currentPrice) $"
-        highPerDayLabel.text = "Максимум 24ч: \(coin.highTwentyFourHours) $"
-        lowPerDayLabel.text = "Минимум 24ч: \(coin.lowTwentyFourHours) $"
+        coinInfoLabel.text = 
+            """
+            \(coin.symbol.uppercased()) - \(coin.name)
+            Текущая цена: \(coin.currentPrice)$
+            Максимум 24ч: \(coin.highTwentyFourHours)$
+            Минимум 24ч: \(coin.lowTwentyFourHours) $
+            """
         
         networkManger.fetchImage(from: URL(string: coin.image)!) { [unowned self] Result in
             switch Result {
