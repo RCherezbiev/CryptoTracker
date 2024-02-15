@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - AgentElement
-struct Coin: Decodable {
+struct Coin {
     let image: String
     let symbol: String
     let name: String

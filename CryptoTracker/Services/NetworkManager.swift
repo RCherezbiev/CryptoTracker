@@ -8,12 +8,6 @@
 import Foundation
 import Alamofire
 
-enum NetworkError: Error {
-    case invalidURL
-    case noData
-    case decodingError
-}
-
 enum Link {
     case apiURL
     
@@ -25,17 +19,16 @@ enum Link {
     }
 }
 
-
-
 final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
-    func fetchImage(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+    func fetchImage(from url: URL, completion: @escaping(Result<Data, AFError>) -> Void) {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.noData))
+                completion(.failure(AFError.parameterEncodingFailed(reason: .missingURL)))
+                print(completion)
                 return
             }
             DispatchQueue.main.async {
