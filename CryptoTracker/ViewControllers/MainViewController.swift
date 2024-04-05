@@ -30,6 +30,12 @@ final class MainViewController: UITableViewController {
         cell.configure(with: coin)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // Здесь добавить код обработки нажатия на ячейку
+    }
+
 }
 
 // MARK: - Networking
